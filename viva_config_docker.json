@@ -1,0 +1,8 @@
+{
+    "SECRET_KEY": "django-insecure-%%+dtz6cuw$^9qx&tc1=a&s1#0v!fkrgbq!bzyrx!ihs(mmt2+",
+    "POSTGRES_DATABASE": "viva",
+    "POSTGRES_USER": "viva",
+    "POSTGRES_PASSWORD": "viva",
+    "POSTGRES_HOST": "viva_db",
+    "POSTGRES_TEST_DB": "test_viva"
+}

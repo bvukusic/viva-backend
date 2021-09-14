@@ -1,0 +1,30 @@
+version: '3.3'
+
+services:
+  viva_db:
+    image: 'postgres:13.1'
+    container_name: viva_db
+    ports:
+        - '5432:5432'
+    volumes:
+      - pgdata:/var/lib/postgresql/data/
+    restart: always
+    environment:
+      - POSTGRES_DB=viva
+      - POSTGRES_USER=viva
+      - POSTGRES_PASSWORD=viva
+  viva_app:
+    build: .
+    container_name: viva_app
+    ports:
+      - '8010:8000'
+    command: ./django_setup.sh
+    volumes:
+      - .:/app
+    depends_on:
+      - viva_db
+    environment:
+      - VIVA_CONFIG=/app/viva_config_docker.json
+      - DJANGO_SETTINGS_MODULE=viva_app.settings
+volumes:
+  pgdata:
